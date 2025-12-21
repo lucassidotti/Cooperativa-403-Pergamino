@@ -1,0 +1,39 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# =========================
+# Virtual environments
+# =========================
+venv/
+.env/
+.venv/
+env/
+
+# =========================
+# Django
+# =========================
+db.sqlite3
+*.log
+local_settings.py
+
+# Media & static (opcional según proyecto)
+media/
+staticfiles/
+
+# =========================
+# IDEs / Editors
+# =========================
+.vscode/
+.idea/
+*.swp
+
+# =========================
+# OS
+# =========================
+.DS_Store
+Thumbs.db
