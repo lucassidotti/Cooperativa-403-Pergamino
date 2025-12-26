@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h2>Bienvenido {{ request.user.username }}</h2>
+    {% if perfil.es_admin %}
+        <p>Sos administrador</p>
+    {% elif perfil.es_alumno %}
+        <p>Sos alumno</p>
+    {% else %}
+        <p>Tu cuenta aún no fue validada</p>
+    {% endif %}
+
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">Cerrar sesión</button>
+    </form>
+</body>
+</html>
