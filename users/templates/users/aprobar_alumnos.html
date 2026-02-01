@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitudes</title>
+</head>
+<body>
+    <h2>Alumnos pendientes de aprobación</h2>
+    <ul>
+    {% for perfil in pendientes %}
+        <li>
+            {{ perfil.user.username }}
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="perfil_id" value="{{ perfil.id }}">
+                <button name="accion" value="aprobar">Aprobar</button>
+                <button name="accion" value="rechazar">Rechazar</button>
+            </form>
+        </li>    
+    {% empty %}
+        <li>No hay alumnos pendientes</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
